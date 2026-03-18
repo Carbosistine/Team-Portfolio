@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IT Team Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-light': '#F3F4F4',
+                        'brand-primary': '#853953',
+                        'brand-secondary': '#612D53',
+                        'brand-dark': '#2C2C2C',
+                        'brand-darker': '#1a1a1a',
+                    },
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'neon': '0 0 15px rgba(133, 57, 83, 0.5)',
+                        'neon-strong': '0 0 30px rgba(133, 57, 83, 0.8)',
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body
+    class="bg-brand-light text-brand-dark dark:bg-brand-darker dark:text-brand-light overflow-x-hidden relative selection:bg-brand-primary selection:text-white">
+
+    <!-- Ambient Background Glows -->
+    <div class="fixed top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
+        <div
+            class="absolute top-[-10%] left-[-10%] w-[45vw] h-[45vw] min-w-[400px] min-h-[400px] bg-brand-primary rounded-full mix-blend-multiply filter blur-[150px] opacity-40 dark:opacity-30 animate-oil-1">
+        </div>
+        <div
+            class="absolute bottom-[-10%] right-[-10%] w-[55vw] h-[55vw] min-w-[450px] min-h-[450px] bg-brand-secondary rounded-full mix-blend-multiply filter blur-[150px] opacity-40 dark:opacity-30 animate-oil-2">
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 transition-all duration-300 glass" id="navbar">
+        <div class="max-w-7xl mx-auto px-6 py-2 flex justify-between items-center">
+            <a href="#" class="text-xl font-extrabold tracking-tighter flex items-center gap-2">
+                <span
+                    class="w-7 h-7 rounded bg-gradient-to-tr from-brand-primary to-brand-secondary flex items-center justify-center text-white text-[10px] font-bold shrink-0">AM</span>
+                Alagad ni Ma'am Maldo
+            </a>
+            <ul class="hidden md:flex space-x-6 text-sm font-medium">
+                <li><a href="#home" class="hover:text-brand-primary transition-colors">Home</a></li>
+                <li><a href="#team" class="hover:text-brand-primary transition-colors">Team</a></li>
+                <li><a href="#projects" class="hover:text-brand-primary transition-colors">Projects</a></li>
+                <li><a href="#contact" class="hover:text-brand-primary transition-colors">Contact</a></li>
+            </ul>
+            <div class="flex items-center gap-2">
+                <button id="theme-toggle"
+                    class="p-1.5 rounded-full hover:bg-black/10 dark:hover:bg-white/10 transition-colors">
+                    <!-- Sun icon -->
+                    <svg id="theme-toggle-light-icon" class="w-5 h-5 hidden dark:block" fill="currentColor"
+                        viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+                            fill-rule="evenodd" clip-rule="evenodd"></path>
+                    </svg>
+                    <!-- Moon icon -->
+                    <svg id="theme-toggle-dark-icon" class="w-5 h-5 dark:hidden block" fill="currentColor"
+                        viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                    </svg>
+                </button>
+                <!-- Burger Button (mobile only) -->
+                <button id="burger-btn"
+                    class="md:hidden p-1.5 rounded-lg hover:bg-black/10 dark:hover:bg-white/10 transition-colors"
+                    aria-label="Toggle menu">
+                    <svg id="burger-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                    <svg id="close-icon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                        </path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Dropdown Menu -->
+        <div id="mobile-menu"
+            class="md:hidden px-6 flex flex-col gap-4 text-sm font-medium border-t border-brand-dark/10 dark:border-brand-light/10">
+            <a href="#home" class="hover:text-brand-primary transition-colors mobile-link">Home</a>
+            <a href="#team" class="hover:text-brand-primary transition-colors mobile-link">Team</a>
+            <a href="#projects" class="hover:text-brand-primary transition-colors mobile-link">Projects</a>
+            <a href="#contact" class="hover:text-brand-primary transition-colors mobile-link">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center pt-20 px-6">
+        <div class="text-center max-w-4xl mx-auto">
+            <div
+                class="hidden-scroll inline-block mb-4 px-4 py-1.5 rounded-full border border-brand-primary/30 bg-brand-primary/10 text-brand-primary text-sm font-semibold tracking-wide backdrop-blur-md">
+                WELCOME TO THE FUTURE OF IT
+            </div>
+            <h1 class="hidden-scroll delay-100 text-5xl md:text-7xl font-extrabold tracking-tight mb-6 leading-tight">
+                We Build <span
+                    class="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary bg-gradient-animate glow-text">Digital
+                    Reality</span>
+            </h1>
+            <p
+                class="hidden-scroll delay-200 text-lg md:text-xl text-brand-dark/70 dark:text-brand-light/70 mb-10 max-w-2xl mx-auto">
+                An elite team of developers, designers, and engineers pushing the boundaries of web and software
+                technology. We don't just write code; we architect the future.
+            </p>
+            <div class="hidden-scroll delay-300 flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#projects"
+                    class="px-8 py-4 rounded-xl bg-gradient-to-r from-brand-primary to-brand-secondary text-white font-bold text-lg hover:shadow-neon transition-all duration-300 transform hover:-translate-y-1">
+                    Explore Our Work
+                </a>
+                <a href="#contact"
+                    class="px-8 py-4 rounded-xl glass font-bold text-lg hover:bg-brand-dark/5 dark:hover:bg-brand-light/5 transition-all duration-300">
+                    Contact The Team
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="py-24 px-6 relative">
+        <div class="max-w-7xl mx-auto">
+            <div class="hidden-scroll mb-16 text-center">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Meet The <span
+                        class="text-brand-primary">Architects</span></h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-brand-primary to-brand-secondary mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+
+                <!-- Team Member 1 - Jay (Lead Developer) -->
+                <a href="jay-crucillo.html" data-team-card
+                    class="block hidden-scroll delay-100 glass rounded-2xl p-4 group hover:border-brand-primary/50 transition-all duration-500 hover:-translate-y-2 cursor-pointer">
+                    <div
+                        class="w-full aspect-square rounded-xl bg-brand-dark/5 dark:bg-brand-light/5 mb-4 overflow-hidden relative">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-tr from-brand-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                        </div>
+                        <div class="w-full h-full flex items-center justify-center overflow-hidden">
+                            <img src="assets/img/Tik_jk.jpg" alt="Jay Crucillo"
+                                class="w-full h-full object-cover transition-all duration-500">
+                        </div>
+                    </div>
+                    <h3 class="text-lg font-bold mb-1 group-hover:text-brand-primary transition-colors">Jay Ronel "Tik"
+                        Crucillo</h3>
+                    <p class="text-brand-primary font-medium mb-4">Lead Developer</p>
+                    <p class="text-sm dark:text-brand-light/60 text-brand-dark/70">Master of back-end systems and the
+                        driving force behind IT innovation.</p>
+                </a>
+
+                <!-- Team Member 2 - Gwen -->
+                <a href="gwen-gealone.html" data-team-card
+                    class="block hidden-scroll delay-200 glass rounded-2xl p-4 group hover:border-brand-secondary/50 transition-all duration-500 hover:-translate-y-2 cursor-pointer">
+                    <div
+                        class="w-full aspect-square rounded-xl bg-brand-dark/5 dark:bg-brand-light/5 mb-4 overflow-hidden relative">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-tr from-brand-secondary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                        </div>
+                        <div class="w-full h-full flex items-center justify-center overflow-hidden">
+                            <img src="assets/img/Gwen_jk.jpg" alt="Gwen Gealone"
+                                class="w-full h-full object-cover transition-all duration-500">
+                        </div>
+                    </div>
+                    <h3 class="text-lg font-bold mb-1 group-hover:text-brand-secondary transition-colors">Gwyneth "Gwen"
+                        Gealone</h3>
+                    <p class="text-brand-secondary font-medium mb-4">UI/UX Designer</p>
+                    <p class="text-sm dark:text-brand-light/60 text-brand-dark/70">Crafting seamless and visually
+                        stunning user experiences.</p>
+                </a>
+
+                <!-- Team Member 3 - Giyan -->
+                <a href="giyan-gacos.html" data-team-card
+                    class="block hidden-scroll delay-300 glass rounded-2xl p-4 group hover:border-brand-primary/50 transition-all duration-500 hover:-translate-y-2 cursor-pointer">
+                    <div
+                        class="w-full aspect-square rounded-xl bg-brand-dark/5 dark:bg-brand-light/5 mb-4 overflow-hidden relative">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-tr from-brand-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                        </div>
+                        <div class="w-full h-full flex items-center justify-center overflow-hidden">
+                            <img src="assets/img/Giyan_jk.jpg" alt="Giyan Gacos"
+                                class="w-full h-full object-cover transition-all duration-500">
+                        </div>
+                    </div>
+                    <h3 class="text-lg font-bold mb-1 group-hover:text-brand-primary transition-colors">Gian Joshua
+                        "Giyan" Gacos</h3>
+                    <p class="text-brand-primary font-medium mb-4">Full Stack Developer</p>
+                    <p class="text-sm dark:text-brand-light/60 text-brand-dark/70">Building robust front-end and
+                        back-end solutions end-to-end.</p>
+                </a>
+
+                <!-- Team Member 4 - Kiko -->
+                <a href="kiko-espano.html" data-team-card
+                    class="block hidden-scroll delay-100 glass rounded-2xl p-4 group hover:border-brand-secondary/50 transition-all duration-500 hover:-translate-y-2 cursor-pointer">
+                    <div
+                        class="w-full aspect-square rounded-xl bg-brand-dark/5 dark:bg-brand-light/5 mb-4 overflow-hidden relative">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-tr from-brand-secondary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                        </div>
+                        <div class="w-full h-full flex items-center justify-center overflow-hidden">
+                            <img src="assets/img/Kiko_jk.jpg" alt="Kiko Españo"
+                                class="w-full h-full object-cover transition-all duration-500">
+                        </div>
+                    </div>
+                    <h3 class="text-lg font-bold mb-1 group-hover:text-brand-secondary transition-colors">Francis "Kiko"
+                        Españo</h3>
+                    <p class="text-brand-secondary font-medium mb-4">Cybersecurity Specialist</p>
+                    <p class="text-sm dark:text-brand-light/60 text-brand-dark/70">Fortifying the team's digital assets
+                        against all threats.</p>
+                </a>
+
+                <!-- Team Member 5 - Jes -->
+                <a href="jes-grafilo.html" data-team-card
+                    class="block hidden-scroll delay-200 glass rounded-2xl p-4 group hover:border-brand-primary/50 transition-all duration-500 hover:-translate-y-2 cursor-pointer">
+                    <div
+                        class="w-full aspect-square rounded-xl bg-brand-dark/5 dark:bg-brand-light/5 mb-4 overflow-hidden relative">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-tr from-brand-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                        </div>
+                        <div class="w-full h-full flex items-center justify-center overflow-hidden">
+                            <img src="assets/img/Jessa_jk.jpg" alt="Jes Grafilo"
+                                class="w-full h-full object-cover transition-all duration-500">
+                        </div>
+                    </div>
+                    <h3 class="text-lg font-bold mb-1 group-hover:text-brand-primary transition-colors">Jessa Mae "Jes"
+                        Grafilo</h3>
+                    <p class="text-brand-primary font-medium mb-4">Project Manager</p>
+                    <p class="text-sm dark:text-brand-light/60 text-brand-dark/70">Orchestrating workflows and
+                        delivering projects on time, every time.</p>
+                </a>
+
+                <!-- Team Member 6 - John Carl -->
+                <a href="john-gersalia.html" data-team-card
+                    class="block hidden-scroll delay-300 glass rounded-2xl p-4 group hover:border-brand-secondary/50 transition-all duration-500 hover:-translate-y-2 cursor-pointer">
+                    <div
+                        class="w-full aspect-square rounded-xl bg-brand-dark/5 dark:bg-brand-light/5 mb-4 overflow-hidden relative">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-tr from-brand-secondary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                        </div>
+                        <div class="w-full h-full flex items-center justify-center overflow-hidden">
+                            <img src="assets/img/John_jk.jpg" alt="John Gersalia"
+                                class="w-full h-full object-cover transition-all duration-500">
+                        </div>
+                    </div>
+                    <h3 class="text-lg font-bold mb-1 group-hover:text-brand-secondary transition-colors">John Carl
+                        Gersalia</h3>
+                    <p class="text-brand-secondary font-medium mb-4">Data Analyst</p>
+                    <p class="text-sm dark:text-brand-light/60 text-brand-dark/70">Turning raw data into actionable
+                        insights that drive smart decisions.</p>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-24 px-6 relative bg-brand-dark/5 dark:bg-black/20">
+        <div class="max-w-7xl mx-auto">
+            <div class="hidden-scroll flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+                <div>
+                    <h2 class="text-4xl md:text-5xl font-bold mb-4">Latest <span
+                            class="text-brand-secondary">Innovations</span></h2>
+                    <div class="w-24 h-1 bg-gradient-to-r from-brand-secondary to-brand-primary rounded-full"></div>
+                </div>
+                <a href="#"
+                    class="group flex items-center gap-2 text-brand-primary font-semibold hover:text-brand-secondary transition-colors">
+                    View All Projects
+                    <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none"
+                        stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                    </svg>
+                </a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Project 1 -->
+                <a href="https://carbosistine.github.io/ChargeShare/" target="_blank" rel="noopener noreferrer"
+                    class="hidden-scroll delay-100 group relative rounded-3xl overflow-hidden aspect-[4/3] md:aspect-[16/9] cursor-pointer shadow-lg hover:shadow-neon transition-all duration-500 border border-brand-dark/10 dark:border-brand-light/10">
+                    <div
+                        class="absolute inset-0 bg-brand-darker bg-opacity-80 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
+                        <h3
+                            class="text-3xl font-bold text-white mb-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                            ChargeShare</h3>
+                        <p
+                            class="text-brand-light/80 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75">
+                            A collaborative EV charging platform built by the team. Click to visit the live site.</p>
+                    </div>
+                    <!-- Project Image -->
+                    <img src="assets/img/ChargeShareCard.png" alt="ChargeShare"
+                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                </a>
+
+                <!-- Project 2 -->
+                <a href="https://carbosistine.github.io/SorsoGo/index.html" target="_blank" rel="noopener noreferrer"
+                    class="hidden-scroll delay-200 group relative rounded-3xl overflow-hidden aspect-[4/3] md:aspect-[16/9] cursor-pointer shadow-lg hover:shadow-neon transition-all duration-500 border border-brand-dark/10 dark:border-brand-light/10">
+                    <div
+                        class="absolute inset-0 bg-brand-darker bg-opacity-80 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
+                        <h3
+                            class="text-3xl font-bold text-white mb-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                            SorsoGo</h3>
+                        <p
+                            class="text-brand-light/80 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75">
+                            A travel guide web app for exploring Sorsogon. Click to visit the live site.</p>
+                    </div>
+                    <!-- Live Preview iframe -->
+                    <div class="w-full h-full overflow-hidden pointer-events-none">
+                        <iframe src="https://carbosistine.github.io/SorsoGo/index.html" title="SorsoGo Preview"
+                            loading="lazy"
+                            class="w-[200%] h-[200%] scale-50 origin-top-left border-0 group-hover:scale-[0.52] transition-transform duration-700"
+                            sandbox="allow-scripts allow-same-origin">
+                        </iframe>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 px-6 relative">
+        <div class="max-w-4xl mx-auto">
+            <div class="hidden-scroll text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Initiate <span
+                        class="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary">Connection</span>
+                </h2>
+                <p class="text-lg text-brand-dark/70 dark:text-brand-light/70">Ready to build the future? Drop us a
+                    signal.</p>
+            </div>
+
+            <div class="relative">
+                <form
+                    class="hidden-scroll delay-200 glass p-8 md:p-12 rounded-3xl space-y-6 relative overflow-hidden shadow-xl z-10">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="space-y-2">
+                            <label
+                                class="text-sm font-semibold uppercase tracking-wider text-brand-dark/80 dark:text-brand-light/80">Name</label>
+                            <input type="text"
+                                class="w-full bg-transparent border-b-2 border-brand-dark/20 dark:border-brand-light/20 py-3 focus:outline-none focus:border-brand-primary transition-colors text-lg"
+                                placeholder="ex. Juan De La Cruz">
+                        </div>
+                        <div class="space-y-2">
+                            <label
+                                class="text-sm font-semibold uppercase tracking-wider text-brand-dark/80 dark:text-brand-light/80">Email</label>
+                            <input type="email"
+                                class="w-full bg-transparent border-b-2 border-brand-dark/20 dark:border-brand-light/20 py-3 focus:outline-none focus:border-brand-secondary transition-colors text-lg"
+                                placeholder="juandelacruz@example.com">
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <label
+                            class="text-sm font-semibold uppercase tracking-wider text-brand-dark/80 dark:text-brand-light/80">Message</label>
+                        <textarea rows="4"
+                            class="w-full bg-transparent border-b-2 border-brand-dark/20 dark:border-brand-light/20 py-3 focus:outline-none focus:border-brand-primary transition-colors text-lg resize-none"
+                            placeholder="Enter your message here..."></textarea>
+                    </div>
+                    <button type="submit"
+                        class="w-full py-4 mt-8 rounded-xl bg-brand-dark text-brand-light dark:bg-brand-light dark:text-brand-dark font-bold text-lg hover:bg-brand-primary dark:hover:bg-brand-primary hover:text-white transition-all duration-300 shadow-lg hover:shadow-neon">
+                        Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer
+        class="py-8 px-6 border-t border-brand-dark/10 dark:border-brand-light/10 text-center text-sm text-brand-dark/60 dark:text-brand-light/60 bg-brand-light dark:bg-brand-darker relative z-10">
+        <p>&copy; 2026 Alagad ni Maldo. Constructed by Maldo's Team. All systems operational.</p>
+    </footer>
+
+    <!-- Cursor tooltip for team cards -->
+    <div id="card-tooltip">Click to view CV →</div>
+
+    <!-- Mobile hint toast for team section -->
+    <div id="team-hint">👆 Tap cards to view CV</div>
+
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>
